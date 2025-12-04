@@ -1,0 +1,43 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": false,
+		"checkJs": false,
+		"noImplicitAny": false,
+		"skipLibCheck": true,
+		"strict": true,
+		"strictPropertyInitialization": false,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"verbatimModuleSyntax": true,
+		"allowSyntheticDefaultImports": true,
+		"jsx": "preserve",
+		"jsxImportSource": "react",
+		"incremental": true,
+		"baseUrl": "src",
+		"paths": {
+			"@/*": ["./src/*"],
+			// export * from * file in index.ts
+			"@ui": ["components/ui/index.ts"],
+			"@layout": ["components/layout/index.ts"],
+			"@hoc": ["hoc/index.ts"],
+			"@contexts": ["contexts/index.ts"],
+			"@types": ["shared/types/index.ts"],
+			"@services": ["services/index.ts"],
+			"@lib": ["lib/index.ts"],
+			"@utils": ["utils/index.ts"],
+			"@helpers": ["helpers/index.ts"],
+			"@hooks": ["hooks/index.ts"],
+			"@providers": ["providers/index.ts"]
+		},
+		"plugins": [{ "name": "next" }]
+	},
+	"include": ["svgr.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+	"exclude": ["node_modules"]
+}

@@ -62,6 +62,7 @@ export default tseslint.config(js.configs.recommended, tseslint.configs.recommen
 				argsIgnorePattern: '^_.*?$',
 			},
 		],
+		'@typescript-eslint/ban-ts-comment': 'off',
 
 		'object-curly-spacing': ['error', 'always'],
 		'react/self-closing-comp': 'warn',

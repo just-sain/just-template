@@ -1,23 +1,19 @@
 import type { Metadata } from 'next'
-import { Advent_Pro } from 'next/font/google'
 
-import { ASidebar, Navbar } from '@layout'
-import { cn } from '@lib'
-import { ThemeProvider } from '@providers'
-import { SidebarInset, SidebarProvider } from '@ui'
+import { ASidebar, Footer } from '@layout'
+import { ASidebarProvider, AuthProvider, QueryProvider, ThemeProvider } from '@providers'
+import { SidebarInset, Toaster } from '@shadcn'
+import 'react-medium-image-zoom/dist/styles.css'
 
 import './globals.css'
-
-// fonts
-const adventPro = Advent_Pro({
-	variable: '--font-advent-pro',
-	subsets: ['latin', 'cyrillic'],
-})
 
 // metadata
 export const metadata: Metadata = {
 	title: 'Testing?',
 	description: 'testing',
+	icons: {
+		icon: '/favicon.svg',
+	},
 }
 
 // layout
@@ -30,16 +26,21 @@ export default function RootLayout({
 		<html suppressHydrationWarning lang='ru'>
 			<head />
 
-			<body className={cn(adventPro.variable, 'min-h-screen antialiased flex flex-col')}>
+			<body className='min-h-screen antialiased flex flex-col'>
 				<ThemeProvider>
-					<SidebarProvider defaultOpen suppressHydrationWarning>
-						<ASidebar />
-						<SidebarInset>
-							<Navbar />
+					<QueryProvider>
+						<ASidebarProvider>
+							<AuthProvider />
 
-							{children}
-						</SidebarInset>
-					</SidebarProvider>
+							<ASidebar />
+							<SidebarInset className='flex-1 min-w-0 justify-between items-stretch'>
+								{children}
+
+								<Toaster position='top-center' />
+								<Footer />
+							</SidebarInset>
+						</ASidebarProvider>
+					</QueryProvider>
 				</ThemeProvider>
 			</body>
 		</html>

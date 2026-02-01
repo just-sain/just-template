@@ -2,31 +2,23 @@
 
 import * as React from 'react'
 
-import { Button, Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from '@ui'
+import { Sidebar, SidebarContent } from '@shadcn'
 
-import { navCourses, navFooter, navMain, navSections, navUser } from './nav-data'
-import { NavFooter } from './nav-footer'
-import { NavLearning } from './nav-learning'
-import { NavMain } from './nav-main'
-import { NavUser } from './nav-user'
+import { navMain } from '../../../constants/navigation.constant'
+import { ASidebarMain } from './content/a-sidebar-main'
+import { ASidebarFooter } from './footer/a-sidebar-footer'
+import { ASidebarHeader } from './header/a-sidebar-header'
 
 export function ASidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 	return (
-		<Sidebar className='border-r-0' collapsible='icon' {...props}>
-			<SidebarHeader>
-				<NavUser user={navUser} />
-				<Button className='w-full rounded-full' variant='default'>
-					Войти
-				</Button>
-			</SidebarHeader>
+		<Sidebar className='border-r-0' collapsible='icon' variant='floating' {...props}>
+			<ASidebarHeader />
+
 			<SidebarContent>
-				<NavMain items={navMain} />
-				<NavLearning isMore label='Записанные курсы' learning={navCourses} />
-				<NavLearning label='Записанные Секции' learning={navSections} />
+				<ASidebarMain items={navMain} />
 			</SidebarContent>
-			<SidebarFooter>
-				<NavFooter className='mt-auto' items={navFooter} />
-			</SidebarFooter>
+
+			<ASidebarFooter />
 		</Sidebar>
 	)
 }

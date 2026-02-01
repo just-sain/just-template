@@ -72,7 +72,7 @@ import {
 	TooltipContent,
 	TooltipProvider,
 	TooltipTrigger,
-} from '@ui'
+} from '@shadcn'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
@@ -315,8 +315,8 @@ function Home() {
 			{/* Skeleton */}
 			<section className='space-y-4'>
 				<Heading size='h2'>Skeleton</Heading>
-				<Skeleton className='h-4 w-[250px]' />
-				<Skeleton className='h-4 w-[200px]' />
+				<Skeleton className='h-4 w-62' />
+				<Skeleton className='h-4 w-50' />
 			</section>
 
 			{/* Spinner */}

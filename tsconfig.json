@@ -17,27 +17,47 @@
 		"isolatedModules": true,
 		"verbatimModuleSyntax": true,
 		"allowSyntheticDefaultImports": true,
-		"jsx": "preserve",
+		"jsx": "react-jsx",
 		"jsxImportSource": "react",
 		"incremental": true,
-		"baseUrl": "src",
 		"paths": {
-			"@/*": ["./src/*"],
-			// export * from * file in index.ts
-			"@ui": ["components/ui/index.ts"],
-			"@layout": ["components/layout/index.ts"],
-			"@hoc": ["hoc/index.ts"],
-			"@contexts": ["contexts/index.ts"],
-			"@types": ["shared/types/index.ts"],
-			"@services": ["services/index.ts"],
-			"@lib": ["lib/index.ts"],
-			"@utils": ["utils/index.ts"],
-			"@helpers": ["helpers/index.ts"],
-			"@hooks": ["hooks/index.ts"],
-			"@providers": ["providers/index.ts"]
+			// in index.tsx export * from files
+			// react feats
+			"@providers": ["./src/providers/index.ts"],
+			"@hooks": ["./src/hooks/index.ts"],
+			"@helpers": ["./src/helpers/index.ts"],
+			// business login
+			"@constants": ["./src/constants/index.ts"],
+			"@types": ["./src/shared/types/index.ts"],
+			"@store": ["./src/store/index.ts"],
+			"@services": ["./src/services/index.ts"],
+			// external
+			"@lib": ["./src/lib/index.ts"],
+			// components
+			"@shadcn": ["./src/shared/shadcn/index.ts"],
+			"@layout": ["./src/components/layout/index.ts"],
+			"@widgets": ["./src/components/widgets/index.ts"]
 		},
-		"plugins": [{ "name": "next" }]
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		// test
+		"types": ["jest", "@testing-library/jest-dom", "node"]
 	},
-	"include": ["svgr.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+	"include": [
+		"svgr.d.ts", // svgr
+		"next-env.d.ts", // next env
+		"src/services/shared/declarations.d.ts", // for css, scss, sass
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		".next/dev/types/**/*.ts",
+		// test
+		"**/*.test.ts",
+		"**/*.test.tsx",
+		"jest.config.js"
+	],
 	"exclude": ["node_modules"]
 }
